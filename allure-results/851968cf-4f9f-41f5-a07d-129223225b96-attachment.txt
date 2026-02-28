@@ -1,5 +1,0 @@
-{
-  "phoneNumber": "",
-  "countryId": 80,
-  "email": ""
-}

@@ -1,6 +1,0 @@
-{
-  "confirmPassword": "string",
-  "deviceModel": "string",
-  "deviceUniqueId": "string",
-  "password": "WWWWWWWW"
-}

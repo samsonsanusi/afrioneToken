@@ -1,4 +1,0 @@
-{
-  "password": "string",
-  "phoneNumber": "+73572280744640"
-}

@@ -1,5 +1,0 @@
-{
-  "phoneNumber": "+233266000606",
-  "countryId": 80,
-  "email": ""
-}

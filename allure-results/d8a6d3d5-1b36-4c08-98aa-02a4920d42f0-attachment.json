@@ -1,9 +1,0 @@
-{
-    "Date": "Sat, 28 Feb 2026 16:50:53 GMT",
-    "Content-Type": "application/json",
-    "Content-Length": "72",
-    "Connection": "keep-alive",
-    "Access-Control-Allow-Methods": "POST, GET, OPTIONS, DELETE, HEAD, PATCH, PUT",
-    "Access-Control-Max-Age": "3600",
-    "Access-Control-Allow-Headers": "Authorization, Content-Type, Accept, X-Requested-With, remember-me, x-timezone, client-key, x-request-client-key"
-}
