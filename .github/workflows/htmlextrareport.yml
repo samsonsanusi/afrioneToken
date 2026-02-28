@@ -35,7 +35,7 @@ jobs:
          newman run
          AfrToken.postman_collection.json \
          -e afrToken.postman_environment.json \
-         r htmlextra \
+         -r htmlextra \
          --reporter-htmlextra-export testResults/htmlreport.html
 
       # 6: Upload test result as an artifact
