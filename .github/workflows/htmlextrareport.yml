@@ -32,8 +32,7 @@ jobs:
       # 5: Run API tests
       - name: Run API Tests
         run: |
-         newman run
-         AfrToken.postman_collection.json \
+         newman run AfrToken.postman_collection.json \
          -e afrToken.postman_environment.json \
          -r htmlextra \
          --reporter-htmlextra-export testResults/htmlreport.html
