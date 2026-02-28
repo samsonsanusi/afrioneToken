@@ -1,0 +1,2914 @@
+{
+	"info": {
+		"_postman_id": "5debee6c-1a9a-41b8-97e0-9e03dfbfbfbf",
+		"name": "AfrToken",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28552493"
+	},
+	"item": [
+		{
+			"name": "signUp",
+			"item": [
+				{
+					"name": "initiatePhoneNumber",
+					"item": [
+						{
+							"name": "unfilledPhoneNumberField",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"let response = pm.response.json();",
+											"",
+											"pm.test('Should return 400 after for unfilled Phone field', function (){",
+											"    pm.response.to.have.status(400)",
+											"})",
+											"",
+											"pm.test('Check for message parameter', function (){",
+											"    pm.expect(response).to.have.property('message')",
+											"})",
+											"",
+											"pm.test('responseMessage', function (){",
+											"    pm.expect(response.message).to.equal('Phone number must be in international format')",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-request-client-key",
+										"value": "{{webClientKey}}"
+									},
+									{
+										"key": "x-timezone",
+										"value": "string"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									},
+									{
+										"key": "",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"phoneNumber\": \"\",\n  \"countryId\": 80,\n  \"email\": \"\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/auth/signup/phone-verification",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"signup",
+										"phone-verification"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "x-request-client-key",
+												"value": "string"
+											},
+											{
+												"key": "x-timezone",
+												"value": "string"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"phoneNumber\": \"+5410206865160\",\n  \"countryId\": 4411,\n  \"email\": \"string\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/auth/signup/phone-verification",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"auth",
+												"signup",
+												"phone-verification"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"string\",\n  \"data\": \"string\"\n}"
+								}
+							]
+						},
+						{
+							"name": "emptyStringsInPhoneField",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"let response = pm.response.json();",
+											"",
+											"pm.test('Should return 400 after entering empty strings in Phone field', function (){",
+											"    pm.response.to.have.status(400)",
+											"})",
+											"",
+											"pm.test('Check for message parameter', function (){",
+											"    pm.expect(response).to.have.property('message')",
+											"})",
+											"",
+											"pm.test('Should return proper error message for phone field', function (){",
+											"    pm.expect(['must not be empty', 'Phone number must be in international format']).to.include(response.message)",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-request-client-key",
+										"value": "{{webClientKey}}"
+									},
+									{
+										"key": "x-timezone",
+										"value": "string"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									},
+									{
+										"key": "",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"phoneNumber\": \"\",\n  \"countryId\": 80,\n  \"email\": \"\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/auth/signup/phone-verification",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"signup",
+										"phone-verification"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "x-request-client-key",
+												"value": "string"
+											},
+											{
+												"key": "x-timezone",
+												"value": "string"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"phoneNumber\": \"+5410206865160\",\n  \"countryId\": 4411,\n  \"email\": \"string\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/auth/signup/phone-verification",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"auth",
+												"signup",
+												"phone-verification"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"string\",\n  \"data\": \"string\"\n}"
+								}
+							]
+						},
+						{
+							"name": "invalidPhonenumberType",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"let response = pm.response.json();",
+											"",
+											"pm.test('Should return 400 after entering empty strings in Phone field', function (){",
+											"    pm.response.to.have.status(400)",
+											"})",
+											"",
+											"pm.test('Check for message parameter', function (){",
+											"    pm.expect(response).to.have.property('message')",
+											"})",
+											"",
+											"pm.test('Should return proper error message for phone field', function (){",
+											"    pm.expect(response.message).to.equal('Phone number must be in international format')",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-request-client-key",
+										"value": "{{webClientKey}}"
+									},
+									{
+										"key": "x-timezone",
+										"value": "string"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									},
+									{
+										"key": "",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"phoneNumber\": \"+233266lllqlq\",\n  \"countryId\": 80,\n  \"email\": \"\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/auth/signup/phone-verification",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"signup",
+										"phone-verification"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "x-request-client-key",
+												"value": "string"
+											},
+											{
+												"key": "x-timezone",
+												"value": "string"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"phoneNumber\": \"+5410206865160\",\n  \"countryId\": 4411,\n  \"email\": \"string\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/auth/signup/phone-verification",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"auth",
+												"signup",
+												"phone-verification"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"string\",\n  \"data\": \"string\"\n}"
+								}
+							]
+						},
+						{
+							"name": "existingPhoneNumber",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"let response = pm.response.json();",
+											"",
+											"pm.test('Should return 400 after entering empty strings in Phone field', function (){",
+											"    pm.response.to.have.status(400)",
+											"})",
+											"",
+											"pm.test('Check for message parameter', function (){",
+											"    pm.expect(response).to.have.property('message')",
+											"})",
+											"",
+											"pm.test('Should return proper error message for phone field', function (){",
+											"    pm.expect(response.message).to.equal('Phone number is already in use')",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-request-client-key",
+										"value": "{{webClientKey}}"
+									},
+									{
+										"key": "x-timezone",
+										"value": "string"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									},
+									{
+										"key": "",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"phoneNumber\": \"+233266000606\",\n  \"countryId\": 80,\n  \"email\": \"\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/auth/signup/phone-verification",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"signup",
+										"phone-verification"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "x-request-client-key",
+												"value": "string"
+											},
+											{
+												"key": "x-timezone",
+												"value": "string"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"phoneNumber\": \"+5410206865160\",\n  \"countryId\": 4411,\n  \"email\": \"string\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/auth/signup/phone-verification",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"auth",
+												"signup",
+												"phone-verification"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"string\",\n  \"data\": \"string\"\n}"
+								}
+							]
+						},
+						{
+							"name": "invalidCountryCode",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"let response = pm.response.json();",
+											"",
+											"pm.test('Should return 400 after entering empty strings in Phone field', function (){",
+											"    pm.response.to.have.status(400)",
+											"})",
+											"",
+											"pm.test('Check for message parameter', function (){",
+											"    pm.expect(response).to.have.property('message')",
+											"})",
+											"",
+											"pm.test('Should return proper error message for invalid country code', function (){",
+											"    pm.expect(response.message).to.equal('Country not found')",
+											"})",
+											"",
+											"pm.test('Should return null in data field after entering invalid country code', function (){",
+											"    pm.expect(response.data).to.equal(null)",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-request-client-key",
+										"value": "{{webClientKey}}"
+									},
+									{
+										"key": "x-timezone",
+										"value": "string"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									},
+									{
+										"key": "",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"phoneNumber\": \"+233266000606\",\n  \"countryId\": 1000000000000000000,\n  \"email\": \"\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/auth/signup/phone-verification",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"signup",
+										"phone-verification"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "x-request-client-key",
+												"value": "string"
+											},
+											{
+												"key": "x-timezone",
+												"value": "string"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"phoneNumber\": \"+5410206865160\",\n  \"countryId\": 4411,\n  \"email\": \"string\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/auth/signup/phone-verification",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"auth",
+												"signup",
+												"phone-verification"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"string\",\n  \"data\": \"string\"\n}"
+								}
+							]
+						},
+						{
+							"name": "validRequest",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"let response = pm.response.json();",
+											"",
+											"pm.test('Should return 400 after entering empty strings in Phone field', function (){",
+											"    pm.response.to.have.status(200)",
+											"})",
+											"",
+											"pm.test('Check for message parameter', function (){",
+											"    pm.expect(response).to.have.property('message')",
+											"})",
+											"",
+											"pm.test('Should return proper string value in data', function (){",
+											"    pm.expect(response.data).to.be.a('string')",
+											"})",
+											"",
+											"pm.test('should return a successful message', function (){",
+											"    pm.expect(response.message).to.equal('Verification code sent successfully.')",
+											"})",
+											"",
+											"let sessionId = response.data;",
+											"pm.environment.set('sessionId', sessionId)"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-request-client-key",
+										"value": "{{webClientKey}}"
+									},
+									{
+										"key": "x-timezone",
+										"value": "string"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									},
+									{
+										"key": "",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"phoneNumber\": \"+233266000405\",\n  \"countryId\": 80,\n  \"email\": \"\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/auth/signup/phone-verification",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"signup",
+										"phone-verification"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "x-request-client-key",
+												"value": "string"
+											},
+											{
+												"key": "x-timezone",
+												"value": "string"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"phoneNumber\": \"+5410206865160\",\n  \"countryId\": 4411,\n  \"email\": \"string\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/auth/signup/phone-verification",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"auth",
+												"signup",
+												"phone-verification"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"string\",\n  \"data\": \"string\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "phoneVerification",
+					"item": [
+						{
+							"name": "unfilledCodefield",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"let response = pm.response.json();",
+											"",
+											"pm.test('status code should be 400', function(){",
+											"    pm.response.to.have.status(400)",
+											"})",
+											"",
+											"pm.test('chceck for message parameter', function (){",
+											"    pm.expect(response).to.have.property('message')",
+											"})",
+											"",
+											"pm.test('should return one of these messages for unfilled code', function (){",
+											"    pm.expect(['must not be empty', '6 digits verification code is required.']).to.include(response.message)",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-request-client-key",
+										"value": "{{webClientKey}}"
+									},
+									{
+										"key": "x-timezone",
+										"value": "string"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"code\": \"\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/auth/signup/:sessionId/verify-code",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"signup",
+										":sessionId",
+										"verify-code"
+									],
+									"variable": [
+										{
+											"key": "sessionId",
+											"value": "{{sessionId}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "x-request-client-key",
+												"value": "string"
+											},
+											{
+												"key": "x-timezone",
+												"value": "string"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"code\": \"694121\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/auth/signup/:sessionId/verify-code",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"auth",
+												"signup",
+												":sessionId",
+												"verify-code"
+											],
+											"variable": [
+												{
+													"key": "sessionId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"string\",\n  \"data\": {}\n}"
+								}
+							]
+						},
+						{
+							"name": "unfilledSessionId",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"let response = pm.response.json();",
+											"",
+											"pm.test('status code should be 400', function(){",
+											"    pm.response.to.have.status(400)",
+											"})",
+											"",
+											"pm.test('chceck for message parameter', function (){",
+											"    pm.expect(response).to.have.property('message')",
+											"})",
+											"",
+											"pm.test('should return proper message for unfilled sessionId', function (){",
+											"    pm.expect(response.message).to.equal('Invalid or expired session Id')",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-request-client-key",
+										"value": "{{webClientKey}}"
+									},
+									{
+										"key": "x-timezone",
+										"value": "string"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"code\": \"123456\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/auth/signup/:sessionId/verify-code",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"signup",
+										":sessionId",
+										"verify-code"
+									],
+									"variable": [
+										{
+											"key": "sessionId",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "x-request-client-key",
+												"value": "string"
+											},
+											{
+												"key": "x-timezone",
+												"value": "string"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"code\": \"694121\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/auth/signup/:sessionId/verify-code",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"auth",
+												"signup",
+												":sessionId",
+												"verify-code"
+											],
+											"variable": [
+												{
+													"key": "sessionId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"string\",\n  \"data\": {}\n}"
+								}
+							]
+						},
+						{
+							"name": "invalidSessionId",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"let response = pm.response.json();",
+											"",
+											"pm.test('status code should be 400', function (){",
+											"    pm.response.to.have.status(400)",
+											"})",
+											"",
+											"pm.test('message parameter should be returned', function(){",
+											"    pm.expect(response).to.include.property('message')",
+											"})",
+											"",
+											"pm.test('message should be Invalid or expired session Id', function (){",
+											"    pm.expect(response.message).to.equal('Invalid or expired session Id')",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-request-client-key",
+										"value": "{{webClientKey}}"
+									},
+									{
+										"key": "x-timezone",
+										"value": "string"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"code\": \"123456\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/auth/signup/:sessionId/verify-code",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"signup",
+										":sessionId",
+										"verify-code"
+									],
+									"variable": [
+										{
+											"key": "sessionId",
+											"value": "77166793170774016"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "x-request-client-key",
+												"value": "string"
+											},
+											{
+												"key": "x-timezone",
+												"value": "string"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"code\": \"694121\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/auth/signup/:sessionId/verify-code",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"auth",
+												"signup",
+												":sessionId",
+												"verify-code"
+											],
+											"variable": [
+												{
+													"key": "sessionId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"string\",\n  \"data\": {}\n}"
+								}
+							]
+						},
+						{
+							"name": "alphabetInCodeField",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"//response variable declaration",
+											"let response = pm.response.json();",
+											"",
+											"//check for status code",
+											"pm.test('status code should be 400', function (){",
+											"    pm.response.to.have.status(400)",
+											"})",
+											"",
+											"//check for data response",
+											"pm.test('data should be null', function (){",
+											"    pm.expect(response.data).to.equal(null)",
+											"})",
+											"",
+											"//check for data existence",
+											"pm.test('data parameter should exist', function (){",
+											"    pm.expect(response).to.include.property('data')",
+											"})",
+											"",
+											"pm.test('message should return \"6 digits verification code is required.\"', function (){",
+											"    pm.expect(response.message).to.equal('6 digits verification code is required.')",
+											"})",
+											"",
+											"pm.test('verify that \"x-request-client-key\" exist in header', function (){",
+											"   pm.expect(pm.request.headers.has('x-request-client-key')).to.be.true;",
+											"})",
+											"",
+											"pm.test('x-request-client-key should not be empty', function(){",
+											"    pm.expect(pm.request.headers.get('x-request-client-key')).to.not.be.empty",
+											"   })"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-request-client-key",
+										"value": "{{webClientKey}}"
+									},
+									{
+										"key": "x-timezone",
+										"value": "string"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"code\": \"asdfgh\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/auth/signup/:sessionId/verify-code",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"signup",
+										":sessionId",
+										"verify-code"
+									],
+									"variable": [
+										{
+											"key": "sessionId",
+											"value": "{{sessionId}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "x-request-client-key",
+												"value": "string"
+											},
+											{
+												"key": "x-timezone",
+												"value": "string"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"code\": \"694121\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/auth/signup/:sessionId/verify-code",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"auth",
+												"signup",
+												":sessionId",
+												"verify-code"
+											],
+											"variable": [
+												{
+													"key": "sessionId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"string\",\n  \"data\": {}\n}"
+								}
+							]
+						},
+						{
+							"name": "incompleteCodeLength",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"//variable declaration",
+											"let response = pm.response.json();",
+											"",
+											"//status code check",
+											"pm.test('status code should be 400', function (){",
+											"    pm.response.to.have.status(400)",
+											"})",
+											"",
+											"//message property check",
+											"pm.test('message parameter should exist', function (){",
+											"    pm.expect(response).to.include.property('message')",
+											"})",
+											"",
+											"pm.test('message should be \"6 digits verification code is required.\"', function(){",
+											"    pm.expect(['6 digits verification code is required.', '6 digits verification code is required.']).to.include(response.message)",
+											"})",
+											"",
+											"pm.test('data property should exist', function (){",
+											"    pm.expect(response).to.include.property('data')",
+											"})",
+											"",
+											"pm.test('data response should be null', function(){",
+											"    pm.expect(response.data).to.equal(null)",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-request-client-key",
+										"value": "{{webClientKey}}"
+									},
+									{
+										"key": "x-timezone",
+										"value": "string"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"code\": \"12345\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/auth/signup/:sessionId/verify-code",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"signup",
+										":sessionId",
+										"verify-code"
+									],
+									"variable": [
+										{
+											"key": "sessionId",
+											"value": "{{sessionId}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "x-request-client-key",
+												"value": "string"
+											},
+											{
+												"key": "x-timezone",
+												"value": "string"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"code\": \"694121\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/auth/signup/:sessionId/verify-code",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"auth",
+												"signup",
+												":sessionId",
+												"verify-code"
+											],
+											"variable": [
+												{
+													"key": "sessionId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"string\",\n  \"data\": {}\n}"
+								}
+							]
+						},
+						{
+							"name": "validCodeRequest",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"let response = pm.response.json();",
+											"",
+											"pm.test('status code should be 200', function (){",
+											"    pm.response.to.have.status(200);",
+											"})",
+											"",
+											"pm.test('message should be \"Code verified successfully.\"', function (){",
+											"    pm.expect(response.message).to.equal('Code verified successfully.')",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-request-client-key",
+										"value": "{{webClientKey}}"
+									},
+									{
+										"key": "x-timezone",
+										"value": "string"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"code\": \"123456\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/auth/signup/:sessionId/verify-code",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"signup",
+										":sessionId",
+										"verify-code"
+									],
+									"variable": [
+										{
+											"key": "sessionId",
+											"value": "{{sessionId}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "x-request-client-key",
+												"value": "string"
+											},
+											{
+												"key": "x-timezone",
+												"value": "string"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"code\": \"694121\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/auth/signup/:sessionId/verify-code",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"auth",
+												"signup",
+												":sessionId",
+												"verify-code"
+											],
+											"variable": [
+												{
+													"key": "sessionId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"string\",\n  \"data\": {}\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Returns country list. Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let response = pm.response.json();",
+									"",
+									"pm.test('dataResponse', function (){",
+									"    pm.expect(response.data).to.eql(",
+									"        [",
+									"        {",
+									"            \"id\": 80,",
+									"            \"code\": \"GH\",",
+									"            \"name\": \"Ghana\",",
+									"            \"dialingCode\": \"+233\",",
+									"            \"flagUrl\": \"https://ik.imagekit.io/snw0wewi2/app_assets/ghana.png?updatedAt=1713861816040\"",
+									"        },",
+									"        {",
+									"            \"id\": 111,",
+									"            \"code\": \"KE\",",
+									"            \"name\": \"Kenya\",",
+									"            \"dialingCode\": \"+254\",",
+									"            \"flagUrl\": \"https://ik.imagekit.io/snw0wewi2/app_assets/kenya.png?updatedAt=1713861815794\"",
+									"        },",
+									"        {",
+									"            \"id\": 158,",
+									"            \"code\": \"NG\",",
+									"            \"name\": \"Nigeria\",",
+									"            \"dialingCode\": \"+234\",",
+									"            \"flagUrl\": \"https://ik.imagekit.io/snw0wewi2/app_assets/nigeria.png?updatedAt=1713861815790\"",
+									"        }",
+									"    ]",
+									"    )",
+									"})",
+									"",
+									"pm.test('status code', function(){",
+									"    pm.response.to.have.status(200)",
+									"})",
+									"",
+									"pm.test('responseMessage', function(){",
+									"    pm.expect(response.message).to.equal('Countries returned successfully.')",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-request-client-key",
+								"value": "{{webClientKey}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/common/countries",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"common",
+								"countries"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-request-client-key",
+										"value": "string"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/common/countries",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"common",
+										"countries"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"string\",\n  \"data\": [\n    {\n      \"id\": 6634,\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"dialingCode\": \"string\",\n      \"flagUrl\": \"string\"\n    },\n    {\n      \"id\": 3349,\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"dialingCode\": \"string\",\n      \"flagUrl\": \"string\"\n    }\n  ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Resend phone OTP. Step 1b Copy",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-request-client-key",
+								"value": "string"
+							},
+							{
+								"key": "x-timezone",
+								"value": "string"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/auth/signup/phone-verification/:sessionId/resend-otp",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"signup",
+								"phone-verification",
+								":sessionId",
+								"resend-otp"
+							],
+							"variable": [
+								{
+									"key": "sessionId",
+									"value": "string"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "x-request-client-key",
+										"value": "string"
+									},
+									{
+										"key": "x-timezone",
+										"value": "string"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/auth/signup/phone-verification/:sessionId/resend-otp",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"signup",
+										"phone-verification",
+										":sessionId",
+										"resend-otp"
+									],
+									"variable": [
+										{
+											"key": "sessionId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"string\",\n  \"data\": \"string\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create password. Step 3 Copy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-request-client-key",
+								"value": "{{webClientKey}}"
+							},
+							{
+								"key": "x-timezone",
+								"value": "string"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"confirmPassword\": \"Otunba_20$\",\n  \"password\": \"Otunba_20$\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/auth/signup/:sessionId/password-detail",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"signup",
+								":sessionId",
+								"password-detail"
+							],
+							"variable": [
+								{
+									"key": "sessionId",
+									"value": "{{sessionId}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-request-client-key",
+										"value": "string"
+									},
+									{
+										"key": "x-timezone",
+										"value": "string"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"confirmPassword\": \"string\",\n  \"password\": \"{0]96!f}G\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/auth/signup/:sessionId/password-detail",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"signup",
+										":sessionId",
+										"password-detail"
+									],
+									"variable": [
+										{
+											"key": "sessionId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"string\",\n  \"data\": {}\n}"
+						}
+					]
+				},
+				{
+					"name": "Create PIN. Final stage Step 4 Copy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-request-client-key",
+								"value": "string"
+							},
+							{
+								"key": "x-timezone",
+								"value": "string"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"confirmPin\": \"1181\",\n  \"newPin\": \"7051\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/auth/signup/:sessionId/transaction-pin",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"signup",
+								":sessionId",
+								"transaction-pin"
+							],
+							"variable": [
+								{
+									"key": "sessionId",
+									"value": "string"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-request-client-key",
+										"value": "string"
+									},
+									{
+										"key": "x-timezone",
+										"value": "string"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"confirmPin\": \"1181\",\n  \"newPin\": \"7051\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/auth/signup/:sessionId/transaction-pin",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"signup",
+										":sessionId",
+										"transaction-pin"
+									],
+									"variable": [
+										{
+											"key": "sessionId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"string\",\n  \"data\": {\n    \"userToken\": {\n      \"accessToken\": {\n        \"token\": \"string\",\n        \"expiryTimeInMinutes\": 5807\n      },\n      \"refreshToken\": {\n        \"token\": \"string\",\n        \"expiryTimeInMinutes\": 117\n      }\n    },\n    \"user\": {\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"userId\": \"string\",\n      \"email\": \"string\",\n      \"gender\": \"string\",\n      \"phoneNumber\": \"string\",\n      \"dateOfBirth\": \"string\",\n      \"passwordUpdateRequired\": true\n    },\n    \"account\": {\n      \"id\": 3561,\n      \"name\": \"string\",\n      \"verificationStatus\": \"string\",\n      \"verificationStage\": \"string\",\n      \"cryptoWallets\": [\n        {\n          \"walletId\": \"string\",\n          \"walletBalance\": 5980.307292826854,\n          \"currency\": {\n            \"displayName\": \"string\",\n            \"symbol\": \"string\",\n            \"code\": \"string\",\n            \"logoUrl\": \"string\",\n            \"crypto\": true\n          },\n          \"walletAddress\": \"string\",\n          \"fiatBalance\": 8299.739793749417\n        },\n        {\n          \"walletId\": \"string\",\n          \"walletBalance\": 2229.1305230202065,\n          \"currency\": {\n            \"displayName\": \"string\",\n            \"symbol\": \"string\",\n            \"code\": \"string\",\n            \"logoUrl\": \"string\",\n            \"crypto\": false\n          },\n          \"walletAddress\": \"string\",\n          \"fiatBalance\": 1754.992880700925\n        }\n      ],\n      \"country\": {\n        \"id\": 856,\n        \"code\": \"string\",\n        \"name\": \"string\",\n        \"dialingCode\": \"string\",\n        \"flagUrl\": \"string\"\n      },\n      \"currency\": {\n        \"name\": \"string\",\n        \"symbol\": \"string\",\n        \"code\": \"string\",\n        \"logoUrl\": \"string\"\n      }\n    }\n  }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "login",
+			"item": [
+				{
+					"name": "Authenticates customer login details on web Copy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-request-client-key",
+								"value": "string"
+							},
+							{
+								"key": "x-timezone",
+								"value": "string"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"password\": \"string\",\n  \"phoneNumber\": \"+73572280744640\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/auth/web-login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"web-login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-request-client-key",
+										"value": "string"
+									},
+									{
+										"key": "x-timezone",
+										"value": "string"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"password\": \"string\",\n  \"phoneNumber\": \"+73572280744640\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/auth/web-login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"web-login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"string\",\n  \"data\": {\n    \"sessionId\": \"string\",\n    \"validityInMinutes\": 4417\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "Resend OTP on web. Copy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-request-client-key",
+								"value": "string"
+							},
+							{
+								"key": "x-timezone",
+								"value": "string"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/auth/web-login/:sessionId/resend-otp",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"web-login",
+								":sessionId",
+								"resend-otp"
+							],
+							"variable": [
+								{
+									"key": "sessionId",
+									"value": "string"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-request-client-key",
+										"value": "string"
+									},
+									{
+										"key": "x-timezone",
+										"value": "string"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/auth/web-login/:sessionId/resend-otp",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"web-login",
+										":sessionId",
+										"resend-otp"
+									],
+									"variable": [
+										{
+											"key": "sessionId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"string\",\n  \"data\": {\n    \"userToken\": {\n      \"accessToken\": {\n        \"token\": \"string\",\n        \"expiryTimeInMinutes\": 5807\n      },\n      \"refreshToken\": {\n        \"token\": \"string\",\n        \"expiryTimeInMinutes\": 117\n      }\n    },\n    \"user\": {\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"userId\": \"string\",\n      \"email\": \"string\",\n      \"gender\": \"string\",\n      \"phoneNumber\": \"string\",\n      \"dateOfBirth\": \"string\",\n      \"passwordUpdateRequired\": true\n    },\n    \"account\": {\n      \"id\": 3561,\n      \"name\": \"string\",\n      \"verificationStatus\": \"string\",\n      \"verificationStage\": \"string\",\n      \"cryptoWallets\": [\n        {\n          \"walletId\": \"string\",\n          \"walletBalance\": 5980.307292826854,\n          \"currency\": {\n            \"displayName\": \"string\",\n            \"symbol\": \"string\",\n            \"code\": \"string\",\n            \"logoUrl\": \"string\",\n            \"crypto\": true\n          },\n          \"walletAddress\": \"string\",\n          \"fiatBalance\": 8299.739793749417\n        },\n        {\n          \"walletId\": \"string\",\n          \"walletBalance\": 2229.1305230202065,\n          \"currency\": {\n            \"displayName\": \"string\",\n            \"symbol\": \"string\",\n            \"code\": \"string\",\n            \"logoUrl\": \"string\",\n            \"crypto\": false\n          },\n          \"walletAddress\": \"string\",\n          \"fiatBalance\": 1754.992880700925\n        }\n      ],\n      \"country\": {\n        \"id\": 856,\n        \"code\": \"string\",\n        \"name\": \"string\",\n        \"dialingCode\": \"string\",\n        \"flagUrl\": \"string\"\n      },\n      \"currency\": {\n        \"name\": \"string\",\n        \"symbol\": \"string\",\n        \"code\": \"string\",\n        \"logoUrl\": \"string\"\n      }\n    }\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "Resend phone OTP. Step 1b Copy",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-request-client-key",
+								"value": "string"
+							},
+							{
+								"key": "x-timezone",
+								"value": "string"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/auth/signup/phone-verification/:sessionId/resend-otp",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"signup",
+								"phone-verification",
+								":sessionId",
+								"resend-otp"
+							],
+							"variable": [
+								{
+									"key": "sessionId",
+									"value": "string"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "x-request-client-key",
+										"value": "string"
+									},
+									{
+										"key": "x-timezone",
+										"value": "string"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/auth/signup/phone-verification/:sessionId/resend-otp",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"signup",
+										"phone-verification",
+										":sessionId",
+										"resend-otp"
+									],
+									"variable": [
+										{
+											"key": "sessionId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"string\",\n  \"data\": \"string\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "forgotPassword",
+			"item": [
+				{
+					"name": "Initiates phone validation. Step 1 Copy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-request-client-key",
+								"value": "string"
+							},
+							{
+								"key": "x-timezone",
+								"value": "string"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"phoneNumber\": \"+1558643154396\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/auth/forgot-password/validate-phone",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"forgot-password",
+								"validate-phone"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-request-client-key",
+										"value": "string"
+									},
+									{
+										"key": "x-timezone",
+										"value": "string"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"phoneNumber\": \"+1558643154396\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/auth/forgot-password/validate-phone",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"forgot-password",
+										"validate-phone"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"string\",\n  \"data\": \"string\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Verifies phone code. Step 2 Copy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-request-client-key",
+								"value": "string"
+							},
+							{
+								"key": "x-timezone",
+								"value": "string"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"code\": \"694121\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/auth/forgot-password/:sessionId/verify-code",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"forgot-password",
+								":sessionId",
+								"verify-code"
+							],
+							"variable": [
+								{
+									"key": "sessionId",
+									"value": "string"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-request-client-key",
+										"value": "string"
+									},
+									{
+										"key": "x-timezone",
+										"value": "string"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"code\": \"694121\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/auth/forgot-password/:sessionId/verify-code",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"forgot-password",
+										":sessionId",
+										"verify-code"
+									],
+									"variable": [
+										{
+											"key": "sessionId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"string\",\n  \"data\": {}\n}"
+						}
+					]
+				},
+				{
+					"name": "Create password. Step 3 Copy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-request-client-key",
+								"value": "string"
+							},
+							{
+								"key": "x-timezone",
+								"value": "string"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"confirmPassword\": \"string\",\n  \"deviceModel\": \"string\",\n  \"deviceUniqueId\": \"string\",\n  \"password\": \"WWWWWWWW\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/auth/forgot-password/:sessionId/password-detail",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"forgot-password",
+								":sessionId",
+								"password-detail"
+							],
+							"variable": [
+								{
+									"key": "sessionId",
+									"value": "string"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-request-client-key",
+										"value": "string"
+									},
+									{
+										"key": "x-timezone",
+										"value": "string"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"confirmPassword\": \"string\",\n  \"deviceModel\": \"string\",\n  \"deviceUniqueId\": \"string\",\n  \"password\": \"WWWWWWWW\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/auth/forgot-password/:sessionId/password-detail",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"forgot-password",
+										":sessionId",
+										"password-detail"
+									],
+									"variable": [
+										{
+											"key": "sessionId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"string\",\n  \"data\": {}\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "afrtoken",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "afrToken-test": "npx newman run AfrToken.postman_collection.json -e afrToken.postman_environment.json -r cli,htmlextra,allure --reporter-htmlextra-export reports/report.html --reporter-allure-export allure-results",
+    "allure": "allure serve allure-results"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "newman": "^6.2.2",
+    "newman-reporter-allure": "^3.5.0",
+    "newman-reporter-htmlextra": "^1.23.1"
+  }
+}

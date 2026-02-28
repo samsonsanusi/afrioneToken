@@ -1,0 +1,52 @@
+name: API Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️: Checkout repo
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      # 2: Setup Node
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # 3: Install dependencies (Newman + reporters)
+      - name: Install dependencies
+        run: npm install
+
+      # 4: Run Newman tests (HTML Extra + Allure)
+      - name: Run Newman tests
+        run: npm run afrToken-test
+
+      # 5: Install Allure CLI (for report generation)
+      - name: Install Allure CLI
+        run: npm install -g allure-commandline --save-dev
+
+      # 6: Generate Allure report (static HTML, no browser)
+      - name: Generate Allure report
+        run: allure generate allure-results --clean -o allure-report
+
+      # 7: Upload HTML Extra report as artifact
+      - name: Upload HTML Extra report
+        uses: actions/upload-artifact@v4
+        with:
+          name: htmlextra-report
+          path: reports/report.html
+
+      # 8: Upload Allure report as artifact
+      - name: Upload Allure report
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report
+          path: allure-report

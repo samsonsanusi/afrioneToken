@@ -1,0 +1,5 @@
+{
+  "phoneNumber": "+233266000405",
+  "countryId": 80,
+  "email": ""
+}

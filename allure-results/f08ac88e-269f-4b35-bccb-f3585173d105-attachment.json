@@ -1,0 +1,13 @@
+{
+    "x-request-client-key": "8a26d5ddbb7ff954da3fefed3551088c",
+    "x-timezone": "string",
+    "Content-Type": "application/json",
+    "Accept": "*/*",
+    "User-Agent": "PostmanRuntime/7.39.1",
+    "Cache-Control": "no-cache",
+    "Postman-Token": "9667bc28-46b8-4a35-955a-9f6ec48c8aa8",
+    "Host": "api-staging.afrione.co",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Connection": "keep-alive",
+    "Content-Length": "22"
+}
